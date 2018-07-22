@@ -1,4 +1,43 @@
-<p>
-  paintings works!
-</p>
-<img [src]="'data:image/jpg;base64,'+horseUrlTest"/>
+<div *ngIf="!viewedPainting" class="paintings">
+    <!-- pagination start -->
+    <ul *ngIf="pager?.pages && pager?.pages.length" class="pagination">
+        <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+            <a class="page-link" (click)="setPage(1)">First</a>
+        </li>
+        <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+            <a class="page-link" aria-label="Previous" (click)="setPage(pager.currentPage - 1)">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li *ngFor="let page of pager?.pages" class="page-item">
+            <a class="page-link" [ngClass]="{active:pager.currentPage === page}" (click)="setPage(page)">{{page}}</a>
+        </li>
+        <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+            <a class="page-link" aria-label="Next" (click)="setPage(pager.currentPage + 1)">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+        <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+            <a class="page-link" (click)="setPage(pager.totalPages)">Last</a>
+        </li>
+    </ul>
+    <!-- pagination end  -->
+    <div class="row">
+        <div *ngFor="let i of pagedItems">
+            <div class="card">
+                <img class="card-img-top" src="assets/paintings/painting ({{i+1}}).jpg" />
+                <div class="card-body">
+                    <h4 class="card-title">Painting #{{i+1}}</h4>
+                    <button class="btn" style="cursor: pointer;" (click)="viewPainting(i)">
+                        <i class="fa fa-eye"></i> View
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div *ngIf="viewedPainting">
+    <app-viewed-painting [viewedPainting]="viewedPainting" (close)='close($event)'></app-viewed-painting>
+</div>

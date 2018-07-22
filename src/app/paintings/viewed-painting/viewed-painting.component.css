@@ -1,0 +1,38 @@
+.viewed-painting {
+    margin: auto;
+    margin-top: 100px;
+    width: 80%;
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+}
+
+.fa.fa-window-close {
+    font-size: 2em;
+    color: tomato;
+}
+
+.fa.fa-download {
+    font-size: 2em;
+    color: tomato;
+    margin-top: 25px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+@media screen and (max-width:1100px) {
+    .viewed-painting {
+        margin: auto;
+        margin-top: 100px;
+        width: 90%;
+        max-width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+}
+
+.small-screen {
+    margin-left: 30px;
+}

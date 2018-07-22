@@ -1,0 +1,27 @@
+<div class="viewed-painting">
+  <div *ngIf="!smallScreen" class="row">
+    <ngx-image-zoom
+      [thumbImage]="viewedPainting" 
+      [fullImage]="viewedPainting" 
+      [magnification]="3"
+      [zoomMode]="'click'" 
+      [enableScrollZoom]="true"
+      [scrollStepSize]="0.5" 
+      [enableLens]="true"
+      [lensWidth]="200"
+      [lensHeight]="200" 
+      [circularLens]="true" 
+      [minZoomRatio]="1"
+      [maxZoomRatio]="16">
+    </ngx-image-zoom>
+    <ul>
+      <li><i class="fa fa-window-close" (click)="closed()"></i></li>
+      <li><a href="{{viewedPainting}}" download><i class="fa fa-download"></i></a></li>
+    </ul>
+  </div>
+  <div *ngIf="smallScreen" class="container">
+    <img [src]="viewedPainting" />
+    <i class="fa fa-window-close small-screen" (click)="closed()"></i>
+    <a href="{{viewedPainting}}" download><i class="fa fa-download small-screen"></i></a>
+  </div>
+</div>
