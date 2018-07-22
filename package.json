@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -23,9 +23,11 @@
     "@angular/router": "^4.2.4",
     "bootstrap": "4.0.0-beta.2",
     "core-js": "^2.4.1",
+    "express": "^4.16.3",
     "handlebars": "^4.0.11",
     "hoek": "^5.0.3",
     "jquery": "3.3.1",
+    "path": "^0.12.7",
     "popper.js": "1.14.1",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
